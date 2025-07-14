@@ -26,4 +26,29 @@ arr.forEach(button => {
             input.value = string;
         }
     })
+
+
+
+
+        // ✅ Add keyboard support
+    document.addEventListener('keydown', function (event) {
+      const allowedKeys = '0123456789+-*/.=EnterBackspace';
+      const key = event.key;
+
+      if (allowedKeys.includes(key)) {
+        if (key === 'Enter') {
+          calculate();
+        } else if (key === 'Backspace') {
+          display.value = display.value.slice(0, -1);
+        } else if (key === '=') {
+          calculate();
+        } else {
+          append(key);
+        }
+      }
+    });
 })
+
+
+
+
